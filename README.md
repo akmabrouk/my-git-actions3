@@ -46,3 +46,6 @@ To store your Docker Hub credentials securely in GitHub:
     DOCKER_PASSWORD: Your Docker Hub password or access token.
 
 This setup will build and push the Docker image to Docker Hub each time there’s a push to the main branch. You can adjust the workflow and tags to fit your specific needs.
+
+To setup Docker Token, go to top right of Docker login where you see 'A', Account Settings, Personal access tokens, 'generate new token' button
+copy and paste the generated token to Github DOCKER_PASSWORD under Settings, Secrets and Variables > Actions 
