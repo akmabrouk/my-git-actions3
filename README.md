@@ -49,3 +49,33 @@ This setup will build and push the Docker image to Docker Hub each time there’
 
 To setup Docker Token, go to top right of Docker login where you see 'A', Account Settings, Personal access tokens, 'generate new token' button
 copy and paste the generated token to Github DOCKER_PASSWORD under Settings, Secrets and Variables > Actions 
+
+Once the Docker image is created and pushed to Dockerhub, create deployment and service on minikube cluster my-cluster as follows:
+
+abdel@My-Dell:~/repos/my-git-actions3$ kubectl apply -f deployment.yaml 
+
+Using curl to run app on CLI use:
+---------------------------------
+1. Get one of cluster nodes IP address using: 
+abdel@My-Dell:~/repos/my-git-actions3$ kubectl get nodes -o wide
+
+2. User curl to test:
+abdel@My-Dell:~/repos/my-git-actions3$ curl http://192.168.49.2:30080
+Hello from Docker!
+
+
+How to run the app on browser
+-----------------------------
+
+Note: Browser cannot connect using http://192.168.49.2:30080 — often due to networking, not the app
+You're not using the same network
+On Linux or Windows WSL2, 192.168.49.3 might not be reachable by the browser because Minikube runs in a VM
+The solution is to use Port Forwarding as follows:
+
+abdel@My-Dell:~/repos/my-git-actions3$ kubectl port-forward service/nodejs-service 3000:80
+Forwarding from 127.0.0.1:3000 -> 3000
+Forwarding from [::1]:3000 -> 3000
+Handling connection for 3000
+
+Go to browser and paste: http://localhost:3000
+Hello from Docker!
