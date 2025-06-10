@@ -33,7 +33,7 @@ jobs:
         with:
           context: .                       # Set the context to the root of the repo
           push: true                       # Push the built image to Docker Hub
-          tags: akmabrdockerid/my-node-application:1.0  # Change this to your Docker Hub username and repo
+          tags: akmabrdockerid/my-node-application:1.1  # Change this to your Docker Hub username and repo
 
       # Step 5: Log out from Docker Hub
       - name: Log out from Docker Hub

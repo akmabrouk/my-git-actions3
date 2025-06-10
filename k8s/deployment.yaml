@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nodejs-container
-          image: akmabrdockerid/my-node-application:1.0
+          image: akmabrdockerid/my-node-application:1.1
           ports:
             - containerPort: 3000
 
