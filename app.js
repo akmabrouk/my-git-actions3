@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello from Docker! This is to test ArgoCD');
+  res.send('Hello from Docker App! ArgoCD sync test\n');
 });
 
 app.listen(port, () => {
